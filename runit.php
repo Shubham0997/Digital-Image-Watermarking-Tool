@@ -56,10 +56,10 @@ if ($uploadOk == 0) {
 }
 ?>
 <?php
+echo getcwd() . "<br>";
+chdir("$username/Decryption");
 
-chdir("G:/xampp/htdocs/Digital Watermarking Tool/$username/Decryption");
-
-include "G:/xampp/htdocs/Digital Watermarking Tool/$username/Decryption/decryption.php";
+include "$username/Decryption/decryption.php";
 
 
 //Decryption triple DES
@@ -88,8 +88,12 @@ else{
   
 rename('decode.txt','Encoded.jpg');
 
+echo getcwd() . "<br>";
+
 
 chdir("G:/xampp/htdocs/Digital Watermarking Tool");
+echo getcwd() . "<br>";
+
 $source=$username.'/Decryption/Encoded.jpg';
 $destination=$username.'/Encryption/image.jpg';
 if( !copy($source, $destination) ) { 
